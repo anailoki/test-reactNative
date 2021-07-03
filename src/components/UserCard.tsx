@@ -21,10 +21,18 @@ export const UserCard = ({ user }: Props) => {
     return (
         <TouchableOpacity 
             activeOpacity={ 0.9} 
-            onPress={()=> navigation.navigate('UserScreen', { 
-                simpleUser: user,
-                gender: isWomen ? 'women' : 'men'
+            onPress={()=> navigation.navigate('StackNavigator', { 
+                screen: 'UserScreen',
+                params:{
+                    simpleUser: user,
+                    gender: isWomen ? 'women' : 'men'
+                }
             })}
+            // onPress={()=> navigation.navigate('UserScreen', { 
+                
+            //     simpleUser: user,
+            //     gender: isWomen ? 'women' : 'men'
+            // })}
         >
             <View style={{...styles.cardContainer, width: windowWidth * 0.4}}>
                 

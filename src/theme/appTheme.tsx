@@ -24,6 +24,24 @@ export const styles = StyleSheet.create({
     },
     textColorLight: {
         color:"white"
+    },
+    welcomeContainer: {
+        alignItems:'center',
+        justifyContent: 'center',
+        marginHorizontal: 10,
+        backgroundColor: '#2D2C3C',
+        height: 100,
+        marginBottom: 40,
+        borderRadius: 10,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+
     }
 
 })

@@ -3,6 +3,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { useWindowDimensions } from 'react-native';
 import { UsersScreen } from '../screens/UsersScreen';
 import { StackNavigator } from './StackNavigator';
+import { HomeScreen } from '../screens/HomeScreen';
 
 
 
@@ -13,9 +14,10 @@ export const  Navigator = () => {
 
   
   return(
-    <Drawer.Navigator initialRouteName="Home" drawerType={ width >= 768 ? 'permanent' : 'front' }>
-      <Drawer.Screen name="StackNavigator" options={{ title: 'Inicio' }} component={ StackNavigator } />
-      <Drawer.Screen name="UsersScreen" options={{title: "Lista de Usuarios"}} component={UsersScreen} />
+    <Drawer.Navigator  drawerType={ width >= 768 ? 'permanent' : 'front' }>
+      <Drawer.Screen name="StackNavigator" options={{title: "Inicio"}}  component={ StackNavigator } />
+      <Drawer.Screen name="UsersScreen"  options={{title: "Lista de Usuarios"}} component={UsersScreen} />
+      {/* <Drawer.Screen name="HomeScreen" options={{title: "Inicio"}} component={HomeScreen} /> */}
     </Drawer.Navigator>
   );
 }
