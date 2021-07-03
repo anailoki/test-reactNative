@@ -30,7 +30,7 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         marginHorizontal: 10,
         backgroundColor: '#2D2C3C',
-        height: 100,
+        height: 130,
         marginBottom: 40,
         borderRadius: 10,
         shadowColor: "#000",
