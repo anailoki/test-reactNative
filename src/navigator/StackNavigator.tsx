@@ -5,7 +5,7 @@ import { User } from '../interfaces/userInterfaces';
 import { UserScreen } from '../screens/UserScreen';
 import { HomeScreen } from '../screens/HomeScreen';
 import { UsersScreen } from '../screens/UsersScreen';
-import { Permissions } from '../screens/PermissionsScreen';
+// import { Permissions } from '../screens/PermissionsScreen';
 
 export type RootStackParams = {
     HomeScreen: undefined,
@@ -25,9 +25,9 @@ export const StackNavigator = () => {
         }
     }}>
       <Stack.Screen name="HomeScreen" options={{ title: 'Inicio' }} component={HomeScreen} />
+      <Stack.Screen name="UserScreen" component={UserScreen}  />
       <Stack.Screen name="UsersScreen" component={UsersScreen} />          
-      <Stack.Screen name="UserScreen" component={UserScreen} />
-      <Stack.Screen name="Permissions" component={Permissions} />
+      {/* <Stack.Screen name="Permissions" component={Permissions} /> */}
     </Stack.Navigator>
   );
 }

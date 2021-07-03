@@ -15,6 +15,7 @@ export const UserScreen = ({navigation, route}: Props) => {
     const urlMen = '../assets/avatarUserSF.png';
     
     const { top } = useSafeAreaInsets();
+    
     return (
         <View style={{height: '100%'}}>
             {/* Header Container 65D9E4 98c7f3*/}
@@ -23,9 +24,9 @@ export const UserScreen = ({navigation, route}: Props) => {
                 backgroundColor: gender ==='women' ? '#fba4a2': '#98c7f3',
             }}>
                 <TouchableOpacity
-                    onPress={()=> navigation.goBack()} 
+                    // onPress={()=> navigation.goBack()} 
                     // onPress={()=> navigation.pop()} 
-                    // onPress={()=> navigation.navigate('UsersScreen')} 
+                    onPress={()=> navigation.navigate('UsersScreen')} 
                     activeOpacity={0.8}
                     style={{...styles.backButton, top: top +10}} 
                     

@@ -53,6 +53,10 @@ export const HomeScreen = ({navigation}: Props) => {
     return (
         <View>
             <View style={{...styles.welcomeContainer, top: top+20,}}>
+                <Button 
+                    title="Menú"
+                    onPress={ () => navigation.toggleDrawer() }
+                />
                 <Text style={{...styles.title}}>{"¡ Bienvenido !"}</Text>
                 <Text style={{color: "white"}}>Fecha: {currentDate} - {currentTime}</Text>
             </View>
