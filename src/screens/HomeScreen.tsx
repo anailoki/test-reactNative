@@ -1,5 +1,6 @@
 import React, {useContext, useEffect} from 'react';
 import { Text, View, Button, ActivityIndicator } from 'react-native';
+import SplashScreen from 'react-native-splash-screen'
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import moment from "moment";
 import { styles } from '../theme/appTheme';
@@ -16,6 +17,11 @@ export const HomeScreen = ({navigation}: Props) => {
     const currentDate = moment(new Date()).format("DD-MM-YYYY");
     const currentTime = moment(new Date()).format("HH:mm A");
     const { top } = useSafeAreaInsets();
+
+    useEffect(() => {
+        SplashScreen.hide();
+        
+    }, [])
 
 
     useEffect(() => {
@@ -60,12 +66,12 @@ export const HomeScreen = ({navigation}: Props) => {
                 <Text>{ JSON.stringify( permissions, null, 5)}</Text>
             </View>}
 
-            <View>
-                <Text>Hola</Text>
+            {permissions.locationStatus === 'granted' && <View style={{alignItems: 'center'}}>
                 <MapView // remove i
                     style={{
-                        height: 400,
-                        width: 400,
+                        height: 500,
+                        width: 300,
+                        alignItems:'center'
                     }}
                     initialRegion={{
                         latitude: 37.78825,
@@ -76,7 +82,7 @@ export const HomeScreen = ({navigation}: Props) => {
                     provider={PROVIDER_GOOGLE}
                 >
                 </MapView>
-            </View>
+            </View>}
         </View>
     );
 };
