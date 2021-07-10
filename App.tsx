@@ -1,10 +1,11 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import { Text } from 'react-native';
+import { Provider } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 import { Navigator } from './src/navigator/Navigator';
 import { Permission } from 'react-native-permissions';
 import { PermissionsProvider } from './src/context/PermissionsContext';
+import { store } from './src/store/store';
 
 const AppState = ({ children}: any) =>{
 
@@ -18,9 +19,11 @@ const AppState = ({ children}: any) =>{
 const App = () => {
   return (
     <NavigationContainer>
-      <AppState>
-        <Navigator />
-      </AppState>
+      <Provider store={store}>
+        <AppState>
+          <Navigator />
+        </AppState>
+      </Provider>
     </NavigationContainer>
   );
 };

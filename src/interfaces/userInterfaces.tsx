@@ -1,3 +1,8 @@
+export interface UserState {
+    loading: boolean,
+    users: User []
+}
+
 export interface User {
     id:       number;
     name:     string;
@@ -26,4 +31,8 @@ export interface Company {
     name:        string;
     catchPhrase: string;
     bs:          string;
+}
+
+export interface FetchUsersSuccessPayload {
+    users: User[]
 }

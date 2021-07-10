@@ -1,13 +1,29 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { View, Text, FlatList, ActivityIndicator  } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { styles } from '../theme/appTheme';
-import { useUserPaginated } from '../hooks/useUserPaginated';
+// import { useUserPaginated } from '../hooks/useUserPaginated';
 import { UserCard } from '../components/UserCard';
+import { fetchUserRequest } from '../actions/usersActions';
+import { RootSate } from '../reducers/rootReducer';
+
 export const UsersScreen = () => {
+    const dispatch = useDispatch();
+    const { loading, users } = useSelector(
+        (state:RootSate) => state.users);
+
     const { top } = useSafeAreaInsets();
 
-    const {isLoading, simpleUserList} =useUserPaginated();
+    // const {isLoading, simpleUserList} =useUserPaginated();
+
+    useEffect(() => {
+        dispatch(fetchUserRequest());
+    }, []);
+
+    console.log("loading", loading);
+    console.log("users", users);
+    
 
 
     return (
@@ -23,7 +39,7 @@ export const UsersScreen = () => {
             <View style={{ alignItems: 'center'}}>
                 
                 <FlatList 
-                    data={ simpleUserList }
+                    data={ users }
                     keyExtractor={ (user) => user.id.toString() }
                     showsVerticalScrollIndicator={ false }
                     numColumns={2}
@@ -42,7 +58,7 @@ export const UsersScreen = () => {
 
                     //Footer
                     ListFooterComponent={
-                        isLoading ? <ActivityIndicator 
+                        loading ? <ActivityIndicator 
                             style={{ height: 100 }}
                             size={ 20 } 
                             color="white"
